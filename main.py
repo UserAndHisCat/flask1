@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from flask import Flask
 from flask import render_template
 
@@ -9,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'username': 'miguel'}
+    user = {'username': 'Эльдар Рязанов'}
     posts = [
         {
             'author': {'username': 'John'},
@@ -24,4 +23,14 @@ def index():
             'body': 'Какая гадость эта ваша заливная рыба!!'
         }
     ]
-    return render_template('index.html', user=user, posts=posts)
+    return render_template('index.html', title='Home', user=user, posts=posts)
+
+
+@app.route('/navbar')
+def navbar():
+    return render_template('navbar.html')
+
+
+@app.route('/map')
+def map():
+    return render_template('map.html')
