@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <h1>Hi, {{ user.username }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
+    <br>
+    <div class="span2">
+        <p><button type="button" class="btn btn-dark btn-block" onclick="window.location.href='{{ url_for( 'what_it_is' ) }}';">Что это такое</button></p>
+        <p><button type="button" class="btn btn-dark btn-block" onclick="window.location.href='{{ url_for( 'hwwt' ) }}';">Как с этим работать</button></p>
+        <p><button type="button" class="btn btn-dark btn-block" onclick="window.location.href='{{ url_for( 'faq' ) }}';">FAQ</button></p>
+    </div>
 {% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>yoooloooo</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>№ Измерения</th>
+        <th>влажность</th>
+        <th>температура</th>
+        <th>температура</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for i in range(6) %}kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+        <tr>
+            <td>{{ listPointsValue[i][0] }}</td>
+            <td>{{ listPointsValue[i][1][0] }}</td>
+            <td>{{ listPointsValue[i][1][1] }}</td>
+            <td>{{ listPointsValue[i][1][1] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
