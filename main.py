@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
 from flask import render_template
-from flask import flash
+from flask import request
 import back
 
 app = Flask(__name__)
@@ -29,12 +29,15 @@ def index():
     return render_template('index.html', title='Home', user=user, posts=posts)
 
 
+@app.context_processor
+def utility_processor():
+    def is_active(item_name, current_name):
+        return "active" if item_name == current_name else ""
+    return dict(is_active=is_active)
+
+
 @app.route('/map')
 def map():
-    flash("flash test!!!!")
-    flash("flash test!!!!")
-    flash("flash test!!!!")
-    flash("flash test!!!!")
     return render_template('map.html')
 
 
@@ -60,5 +63,5 @@ def faq():
 
 @app.route('/specVal')
 def special_value():
-    return render_template('specVal.html', listPointsValue=back.add_points_value())
-
+    ID = request.args.get('ID')
+    return render_template('specVal.html', listPointsValue=back.get_measurements_by_id(str(ID)))

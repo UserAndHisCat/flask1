@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p>yoooloooo</p>
+<h1>Таблица измеренинй геоточки {{ listPointsValue[1] }}</h1>
 
 <table class="table table-striped">
     <thead>
@@ -13,14 +13,14 @@
     </tr>
     </thead>
     <tbody>
-        {% for i in range(6) %}kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-        <tr>
-            <td>{{ listPointsValue[i][0] }}</td>
-            <td>{{ listPointsValue[i][1][0] }}</td>
-            <td>{{ listPointsValue[i][1][1] }}</td>
-            <td>{{ listPointsValue[i][1][1] }}</td>
-        </tr>
-        {% endfor %}
+    {% for j in range(24) %}
+    <tr>
+        <td>{{ listPointsValue[0][j][0] }}</td>
+        <td>{{ listPointsValue[0][j][1][0] }}</td>
+        <td>{{ listPointsValue[0][j][1][1] }}</td>
+        <td>{{ listPointsValue[0][j][1][2] }}</td>
+    </tr>
+    {% endfor %}
     </tbody>
 </table>
 
