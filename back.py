@@ -50,6 +50,5 @@ def get_measurements_by_id(ID):
 
 add_points()
 add_points_value()
-print(get_measurements_by_id('001'))
-print(pointsValue[1][1][1][1])
+
 

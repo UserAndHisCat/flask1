@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Таблица измеренинй геоточки {{ listPointsValue[1] }}</h1>
+<h2>Таблица измерениний геоточки {{ listPointsValue[1] }}</h2>
+
+<a href="graphics?ID={{ listPointsValue[1] }}">Ссылка на график</a>
 
 <table class="table table-striped">
     <thead>
@@ -9,7 +11,7 @@
         <th>№ Измерения</th>
         <th>влажность</th>
         <th>температура</th>
-        <th>температура</th>
+        <th>кислотность</th>
     </tr>
     </thead>
     <tbody>
