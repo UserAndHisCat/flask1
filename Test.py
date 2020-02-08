@@ -1,18 +1,9 @@
-add = []
+import random
 
-a = 1
-b = 5
-ID = 5
+a =[]
 
-add = [(a, [2, 3, 4]), (7, [6, 7, 8]), (5, [6, 7, 8]), (4, [6, 7, 8]), (1, [6, 7, 8])]
-a = [1, 2, 3, 4, 5]
+for i in range(6):
+    for j in range(4):
+        a.append(str(j*7) + ' . ' + str(1))
 
-
-def specific_value(ID):
-    t = 0
-    for i in range(7):
-        if ID == add[i][0]:
-            t = i
-            break
-    print(i)
-
+print(a)

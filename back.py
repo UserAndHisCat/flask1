@@ -24,7 +24,6 @@ def add_points():
         points[i][0] = '00' + str(i+1)
         points[i][1][0] = str(random.randint(11, 100)) + '.' + str(random.randint(1000000, 10000000))
         points[i][1][1] = str(random.randint(11, 100)) + '.' + str(random.randint(1000000, 10000000))
-    return points, n
 
 
 def add_points_value():
@@ -46,6 +45,10 @@ def get_measurements_by_id(ID):
             break
 
     return pointsValue[t][1], ID
+
+
+def get_points():
+    return points, n
 
 
 add_points()

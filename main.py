@@ -32,7 +32,7 @@ def index():
             'body': 'Какая гадость эта ваша заливная рыба!!'
         }
     ]
-    return render_template('index.html', title='Home', user=user, posts=posts)
+    return render_template('index.html', title='Home', nav_item="gl")
 
 
 @app.context_processor
@@ -44,12 +44,12 @@ def utility_processor():
 
 @app.route('/map')
 def map():
-    return render_template('map.html')
+    return render_template('map.html', title='Map', nav_item="gl")
 
 
 @app.route('/analytics')
 def analytics():
-    return render_template('analytics.html', listPoints=back.add_points())
+    return render_template('analytics.html', title='Analytics', nav_item="gl", listPoints=back.get_points())
 
 
 @app.route('/whatitis')
