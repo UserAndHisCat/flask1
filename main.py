@@ -64,4 +64,4 @@ def faq():
 @app.route('/specVal')
 def special_value():
     ID = request.args.get('ID')
-    return render_template('specVal.html', listPointsValue=repository.get_measurements_by_id(str(ID)))
+    return render_template('specVal.html', listMeasurements=repository.get_measurements_by_id(str(ID)), point_id=ID)

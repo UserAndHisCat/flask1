@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Таблица измеренинй геоточки {{ listPointsValue[1] }}</h1>
+<h1>Таблица измеренинй геоточки {{ point_id }}</h1>
 
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>№ Измерения</th>
+        <th>Дата Измерения</th>
         <th>влажность</th>
         <th>температура</th>
-        <th>температура</th>
+        <th>кислотность</th>
     </tr>
     </thead>
     <tbody>
-    {% for j in range(24) %}
+    {% for measurement in listMeasurements %}
     <tr>
-        <td>{{ listPointsValue[0][j][0] }}</td>
-        <td>{{ listPointsValue[0][j][1][0] }}</td>
-        <td>{{ listPointsValue[0][j][1][1] }}</td>
-        <td>{{ listPointsValue[0][j][1][2] }}</td>
+        <td>{{ measurement.timestamp }}</td>
+        <td>{{ measurement.temperature }}</td>
+        <td>{{ measurement.humidity }}</td>
+        <td>{{ measurement.acidity }}</td>
     </tr>
     {% endfor %}
     </tbody>

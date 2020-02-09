@@ -52,10 +52,11 @@ def get_measurements_all():
     return measurements
 
 
-def get_measurements_by_id(ID):
+def get_measurements_by_id(id):
     result = []
+    id = int(id)
     for measurement in measurements:
-        if ID == measurement.point_id:
+        if id == measurement['point_id']:
             result.append(measurement)
 
     return result
