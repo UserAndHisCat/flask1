@@ -5,7 +5,6 @@ from flask import request
 from flask import Response
 import numpy as np
 import io
-import random
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 import back
@@ -17,22 +16,7 @@ app.secret_key = 'some_secret'
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'username': 'Эльдар Рязанов'}
-    posts = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        },
-        {
-            'author': {'username': 'Ипполит'},
-            'body': 'Какая гадость эта ваша заливная рыба!!'
-        }
-    ]
-    return render_template('index.html', title='Home', nav_item="gl")
+    return render_template('index.html', title='Home', nav_item="Главная")
 
 
 @app.context_processor
@@ -44,12 +28,12 @@ def utility_processor():
 
 @app.route('/map')
 def map():
-    return render_template('map.html', title='Map', nav_item="gl")
+    return render_template('map.html', title='Map', nav_item="Карта")
 
 
 @app.route('/analytics')
 def analytics():
-    return render_template('analytics.html', title='Analytics', nav_item="gl", listPoints=back.get_points())
+    return render_template('analytics.html', title='Analytics', nav_item="Аналитика", listPoints=back.get_points())
 
 
 @app.route('/whatitis')
@@ -70,7 +54,7 @@ def faq():
 @app.route('/specVal')
 def special_value():
     ID = request.args.get('ID')
-    return render_template('specVal.html', listPointsValue=back.get_measurements_by_id(str(ID)))
+    return render_template('specVal.html', listPointsValue=back.get_measurements_by_id(str(ID)), date=back.get_date())
 
 
 @app.route('/graphics')
@@ -101,5 +85,8 @@ def create_figure(ID):
         yh.append(pv[1][0])
         yt.append(pv[1][1])
         ya.append(pv[1][2])
-    axis.plot(xs, yh, xs, yt, xs, ya)
+    axis.plot(xs, yh, "-b", label="Влажность")
+    axis.plot(xs, yt, "-r", label="Температура")
+    axis.plot(xs, ya, "-g", label="Кислотность")
+    axis.legend(loc="upper left")
     return fig

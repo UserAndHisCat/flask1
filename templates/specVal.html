@@ -4,7 +4,7 @@
     ul.hr {
     margin: 0;
     padding: 4px;
-    width: 4000px;
+    width: 1190px;
    }
    ul.hr li {
     display: inline;
@@ -19,19 +19,19 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>№ Измерения</th>
+        <th>Дата измерения</th>
         <th>влажность</th>
         <th>температура</th>
         <th>кислотность</th>
     </tr>
     </thead>
     <tbody>
-    {% for j in range(24) %}
+    {% for i in range(30) %}
     <tr>
-        <td>{{ listPointsValue[0][j][0] }}</td>
-        <td>{{ listPointsValue[0][j][1][0] }}</td>
-        <td>{{ listPointsValue[0][j][1][1] }}</td>
-        <td>{{ listPointsValue[0][j][1][2] }}</td>
+        <td>{{ date[i] }}</td>
+        <td>{{ listPointsValue[0][i][1][0] }}   %</td>
+        <td>{{ listPointsValue[0][i][1][1] }}   С</td>
+        <td>{{ listPointsValue[0][i][1][2] }}   pH</td>
     </tr>
     {% endfor %}
     </tbody>

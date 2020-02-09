@@ -1,8 +1,7 @@
 import random
 points = []
 pointsValue = []
-longPoints = []
-widthPoints = []
+date = []
 n = random.randint(4, 7)
 a = ''
 
@@ -13,10 +12,20 @@ for i in range(n):
 
 for i in range(n):
     pointsValue.append([a, []])
-    for j in range(24):
+    for j in range(30):
         pointsValue[i][1].append([a, []])
         for h in range(3):
             pointsValue[i][1][j][1].append([])
+
+
+def add_date():
+    year_number = 1
+    month_number = 6
+    week_number = 5
+    for y in range(year_number):
+        for m in range(1, month_number + 1):
+            for w in range(week_number):
+                date.append(str(1 + w * 7) + ' . ' + str(m) + ' . ' + str(2019 + y))
 
 
 def add_points():
@@ -29,12 +38,12 @@ def add_points():
 def add_points_value():
     for i in range(n):
         pointsValue[i][0] = '00' + str(i+1)
-        for j in range(24):
+        for j in range(30):
             pointsValue[i][1][j][0] = j
             for h in range(3):
-                pointsValue[i][1][j][1][0] = random.randint(10, 100)
-                pointsValue[i][1][j][1][1] = random.randint(10, 100)
-                pointsValue[i][1][j][1][2] = random.randint(10, 100)
+                pointsValue[i][1][j][1][0] = random.randint(60, 80)
+                pointsValue[i][1][j][1][1] = random.randint(22, 27)
+                pointsValue[i][1][j][1][2] = random.random() + random.randint(0, 10)
 
 
 def get_measurements_by_id(ID):
@@ -51,7 +60,11 @@ def get_points():
     return points, n
 
 
+def get_date():
+    return date
+
+
+add_date()
 add_points()
 add_points_value()
-
 
