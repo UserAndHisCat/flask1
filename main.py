@@ -2,7 +2,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-import back
+import repository
 
 app = Flask(__name__)
 app.secret_key = 'some_secret'
@@ -43,7 +43,7 @@ def map():
 
 @app.route('/analytics')
 def analytics():
-    return render_template('analytics.html', listPoints=back.add_points())
+    return render_template('analytics.html', listPoints=repository.get_points_all())
 
 
 @app.route('/whatitis')
@@ -64,4 +64,4 @@ def faq():
 @app.route('/specVal')
 def special_value():
     ID = request.args.get('ID')
-    return render_template('specVal.html', listPointsValue=back.get_measurements_by_id(str(ID)))
+    return render_template('specVal.html', listPointsValue=repository.get_measurements_by_id(str(ID)))
