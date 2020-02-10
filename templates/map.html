@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <p>yaaariiiii</p>
-    <p><img src="/static/field.png"></p>
+ <!--<p><img src="/static/field.png"></p>-->
+    <style>
+        div.img {
+        margin-left: -70px;
+        margin-right: auto;
+        }
+        div.mid {
+        margin-left: 290px;
+        margin-right: auto;
+        }
+    </style>
+    <div class = 'mid'><h3>Карта с отображением точек измерений</h3></div>
+    <div class = 'img'><img src="/field.png" alt="my plot"></div>
 
 {% endblock %}

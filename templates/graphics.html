@@ -8,6 +8,12 @@
        }
        ul.hr li {
         display: inline;
+        }
+
+        img{
+        margin-right: auto;
+        margin-left: 220px;
+        }
     </style>
     <ul class="hr">
         <li><a href="specVal?ID={{ ID }}"><button style = 'width:550px;' class="btn btn-dark">Список</button></a></li>
@@ -16,5 +22,5 @@
     <br>
     <h2>Графики для геоточки {{ ID }}</h2>
     <hr>
-    <img src="/plot.png?ID={{ ID }}" alt="my plot">
+    <img class = "" src="/plot.png?ID={{ ID }}" alt="my plot">
 {% endblock %}

@@ -1,8 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+.parent
+{
 
-<h2>Таблица всех геоточек</h2>
+}
+.child
+{
+	display: inline-block;
+}
+</style>
 
+<div class="parent">
+	<div class="child">
+	    <h2>Таблица всех геоточек</h2>
+	</div>
+	<div style="width: 770px;" class="child">
+	    <a style="margin-left: 400px;" href="glob_graphic"><button style = 'width:350px;' class="btn btn-dark">График</button></a>
+	</div>
+</div>
+<br>
 <table class="table table-striped">
     <thead>
     <tr>
